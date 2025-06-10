@@ -133,3 +133,4 @@ def insert_df_into_warehouse(db, df, table_name):
     db.run(query)
     return {table_name:len(df)}
     
+#test comment
