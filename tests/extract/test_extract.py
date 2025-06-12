@@ -3,7 +3,7 @@ import pytest
 import boto3
 from moto import mock_aws
 from unittest.mock import Mock, patch
-import dotenv
+# import dotenv
 
 @pytest.fixture(scope="module")
 def db():
@@ -36,7 +36,7 @@ def s3_client_with_bucket(s3_client):
 
 @pytest.fixture()
 def db(s3_client):
-    dotenv.load_dotenv()
+    # dotenv.load_dotenv()
     mock_password = Mock(return_value=os.environ["DBPASSWORD"])
     with patch('src.extract.lambda_extract.get_db_password', mock_password):
         return create_conn(s3_client)
